@@ -43,3 +43,19 @@ void print_chain_list(ChainList *list){
         iter = iter->next;
     }
 }
+
+void free_chain_list(ChainList *list){
+    if(list->head == NULL) {
+        free(list);
+        return;
+    }
+    ChainListNode * iter = list->head;
+    ChainListNode * next;
+    while(iter != NULL){
+        free_chain(iter->chain);
+        next = iter->next;
+        free(iter);
+        iter = next;
+    }
+    free(list);
+}

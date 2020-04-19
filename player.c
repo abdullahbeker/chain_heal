@@ -91,12 +91,33 @@ void free_chain(Chain *chain)
         free(chain);
         return;
     }
-    ChainNode *iter;
-    while (chain->head != NULL)
+    ChainNode *iter, *next;
+    iter = chain->head;
+    while (iter != NULL)
     {
-        iter = chain->head->next;
-        free(chain->head);
-        chain->head = iter;
+        free(iter->player->nickname);
+        free(iter->player->position);
+        free(iter->player);
+        next = iter->next;
+        free(iter);
+        iter = next;
+    }
+    free(chain);
+}
+
+void free_only_chain(Chain *chain){
+    if (chain->head == NULL)
+    {
+        free(chain);
+        return;
+    }
+    ChainNode *iter, *next;
+    iter = chain->head;
+    while (iter != NULL)
+    {
+        next = iter->next;
+        free(iter);
+        iter = next;
     }
     free(chain);
 }

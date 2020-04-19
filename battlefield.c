@@ -82,7 +82,7 @@ void find_and_print_best_healing_path(ChainList *paths){
     printf("Total_Healing: %d\n", best->totalHealing);
 }
 
-void itialize_neighbors(Battlefield *bf)
+void initialize_neighbors(Battlefield *bf)
 {
     ChainNode *outer = bf->players->head;
     while (outer != NULL)

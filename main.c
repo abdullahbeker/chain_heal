@@ -57,7 +57,7 @@ int main(int argc, char **argv)
     {
         add_player(bf, new_player(strdup(nickname), maxHealth, currentHealth, xPosition, yPosition));
     }
-    itialize_neighbors(bf);
+    initialize_neighbors(bf);
     Chain *playersInInitialRange = find_players_in_initial_range(bf);
     ChainNode *iter = playersInInitialRange->head;
     while (iter != NULL)
@@ -68,7 +68,9 @@ int main(int argc, char **argv)
     }
     calculate_total_healing(bf->paths, bf->initialPower, bf->powerReduction);
     find_and_print_best_healing_path(bf->paths);
-    free_chain(bf->players);
+
+    free_chain_list(bf->paths);
+    free_only_chain(bf->players);
     free(bf);
     return EXIT_SUCCESS;
 }

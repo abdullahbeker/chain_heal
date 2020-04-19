@@ -40,6 +40,7 @@ void add_node_to_chain(Chain *chain, ChainNode *cn);
 void prepend_node_to_chain(Chain *chain, ChainNode *cn);
 void print_chain(Chain *chain);
 void free_chain(Chain *chain);
+void free_only_chain(Chain *chain);
 int player_has_neighbour(Player *player, Player *neighbour);
 Player *chain_at(Chain *, int);
 

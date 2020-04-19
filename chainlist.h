@@ -19,5 +19,6 @@ ChainListNode* new_chain_list_node(Chain *chain);
 ChainList* new_chain_list();
 void add_node_to_chain_list(ChainList *list, ChainListNode *node);
 void print_chain_list(ChainList *list);
+void free_chain_list(ChainList *list);
 
 #endif

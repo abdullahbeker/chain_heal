@@ -23,7 +23,7 @@ void print_players(Battlefield *battlefield);
 void calculate_total_healing(ChainList *list, int initialPower, double powerReductionCoefficient);
 void reset(Chain *players);
 void find_and_print_best_healing_path(ChainList *paths);
-void itialize_neighbors(Battlefield *bf);
+void initialize_neighbors(Battlefield *bf);
 Chain *find_players_in_initial_range(Battlefield *bf);
 
 #endif
