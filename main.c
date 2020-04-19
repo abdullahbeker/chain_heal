@@ -55,6 +55,12 @@ int main(int argc, char **argv)
     Battlefield *bf = new_battlefield(atoi(argv[1]), atoi(argv[2]), atoi(argv[3]), atoi(argv[4]), atof(argv[5]));
     while (scanf("%d %d %d %d %s", &xPosition, &yPosition, &currentHealth, &maxHealth, nickname) == 5)
     {
+        if (xPosition < -10000 || xPosition > 10000 || yPosition < -10000 || yPosition > 10000 || maxHealth < 1 || maxHealth > 10000 || currentHealth < 0 || currentHealth > maxHealth)
+        {
+            perror("Giris ihlali!\nX ve Y -10000 ile +10000 araliginda olmalidir...\nMaks_PP 1 ile 10000 arasinda olmalidir...\nMevcut_PP 0 ile Maks_PP arasinda olmalidir\nProgram sonlandiriliyor..\n");
+            free_chain(bf->players);
+            exit(EXIT_FAILURE);
+        }
         add_player(bf, new_player(strdup(nickname), maxHealth, currentHealth, xPosition, yPosition));
     }
     initialize_neighbors(bf);
